@@ -1,0 +1,92 @@
+
+<!--VERSION 2 WITH CSS, introduction to responsive design, resize per device, then attempt interactive links (enabled)
+WILL ALSO load detailPage.html, with url param handling built in
+grab a set of images, using an array, for-iteration, then style them using css,
+move to second page using url parameters, non jq
+use non jq method to pass url parameters
+width of div, https://css-tricks.com/almanac/properties/w/width/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="go.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+  <header><!--#8-->
+  <nav class="navbar-nav navbar-expand-md navbar-light bg-black sticky-top">
+    <button class="navbar-toggler" data-toggle="collapse"  data-target="#collapse_target">
+      <span class ="navbar-toggler-icon"><span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapse_target">
+  <span class="navbar-text"> CIS 3110</span>
+
+  <ul class="navbar-nav">
+  <li  class="nav-item">  <a class="nav-link" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/main.html">Home</a>  </li>
+  <li class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Site Directory<span class="caret"></span></a> <!--#1-->
+  <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                  <a  class="dropdown-item" href="https://s3.us-east-2.amazonaws.com/thefirstphase1/the+first+try.html"> Christian's Site</a><!--put your sites here-->
+                  <a  class="dropdown-item"href="https://s3-us-west-2.amazonaws.com/cis3110fall/p1.html"> Kyle's Site</a>
+                  <a  class="dropdown-item"href="https://s3-us-west-2.amazonaws.com/3110/Phase+1+Assignment/Phase1.html"> Ahmed's Site </a>
+                  <a  class="dropdown-item"href="https://s3.us-east-2.amazonaws.com/phase1assignment/asdf.html"> Steven's Site</a>
+                  <a  class="dropdown-item"href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase1/phase1.html"> Vincent's Site</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Other Projects<span class="caret"></span></a> <!--#1-->
+    <div class="dropdown-menu" aria-labelledby="dropdown_target">
+      <a  class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase1/phase1.html">Phase 1</a>
+        <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/p2.html">Phase 2</a>
+        <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase3/p3.html">Phase 3</a>
+          </div>
+      </li>
+  </ul>
+</div>
+</nav>
+</header>
+<div class="jumbotron">
+            <h1 class="text-center"> <strong>Photo Gallery</strong> </h1>
+            <h2 class="text-center">A bunch of pictures <em>for CIS 3110</em> </h2>
+            <div id="imgs"></div>
+  </div>
+       <p class="text-center">Created by Vincent Tran</p>
+        </div>
+<script>
+var images = ["https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/magic.jpg",
+    "https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/jerry-west-main-marquee.jpg",
+    "https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/kareem.jpg",
+    "https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/Shaq.jpg",
+    "https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/kObe.jpg"];
+var caption=["Magic Johnson", "Jerry West", "Kareem Abdul Jabbar", "Shaquille O Neal", "Kobe Bean Bryant"];
+var description=["Magic Johson brought showtime to the Lakers. He ignited the rivalry between the Celtics","Jerry West is the NBA logo. Enough said.","Kareem is still the leader in points as no one else has ever come close to his logetivity.", "Can you dig it?", "He did not flinch when Matt Barnes through the ball straight at his face"];
+ console.log(images);
+ var url ;
+ for(var i=0; i < images.length; i++) //establish for, 6 items, last index place is 5, if you recall
+ {
+   console.log("image in iteration is " + images[i]);
+   url = images[i]; //append to https://s3-us-west-2.amazonaws.com/newbucket3110fall18/phase2/
+   urlOfDet = "detail.html?" + "img=" + url + "&caption=" + caption[i] + "&description=" + description[i]; //where you will navigate, once you press the image, will send the detail page the img to analyze
+//https://github.com/stefanbund/311/blob/16b1bb98a9f3c7a10663c2a4f87651bbf3508e17/prior%20terms/spring%202018%20materials/unit%202%20URL%20parameters/urlOrigin.html#L31   var imgDiv = document.createElement("div"); //divs to house img
+  var imgDiv = document.createElement("div"); //make a div
+   imgDiv.setAttribute("class", "imgDiv"); //so it displays at 30% width, margin and padding https://css-tricks.com/almanac/properties/o/object-fit/
+   var imgInDiv = document.createElement("img");
+   imgInDiv.setAttribute("class", "pct"); //fit to div
+   imgInDiv.setAttribute("src", url);
+   var descriptionI = document.createTextNode(caption[i]);
+   imgDiv.appendChild(descriptionI);
+   var link = document.createElement("a");
+   link.setAttribute("href", urlOfDet);
+   link.appendChild(imgInDiv);
+   imgDiv.appendChild(link);
+   document.body.appendChild(imgDiv);
+ }
+</script>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>

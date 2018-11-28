@@ -262,10 +262,23 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
                btnDiv.appendChild(btnFav);
 
            } else {
-               var icon = document.createElement("img");
-               icon.setAttribute("class", "iconImg");
-               icon.setAttribute("src", "http://files.softicons.com/download/android-icons/cold-fusion-hd-icons-by-chris-banks/png/59x60/basketball.png");
-               btnDiv.appendChild(icon);
+                 var icon = document.createElement("BUTTON");
+                icon.setAttribute("class", "badge");
+
+				var tes = document.createTextNode("This is your Fav");
+				
+                icon.appendChild(tes);
+                
+                btnDiv.appendChild(icon);
+
+				var alerts = document.createElement("div");
+                alerts.setAttribute("class", "alert alert-success");
+
+				var tex = document.createTextNode("Thank you for favorting");
+
+                alerts.appendChild(tex);
+
+                document.body.appendChild(alerts);
 
            }
 

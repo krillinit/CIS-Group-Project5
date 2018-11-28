@@ -17,6 +17,12 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
   <header>
     <!--#8-->
     <nav class="navbar-nav navbar-expand-md navbar-light bg-black sticky-top">
+
+      <a class="navbar-brand" href="#">
+        <img src="https://s3-us-west-2.amazonaws.com/phase4assignment/Lakers-icon.png" width="100" height="100" class="d-inline-block align-top" alt="">
+        <p class="align-top text-warning font-weight-bold"> Los Angeles Lakers </p>
+      </a>
+
       <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
         <span class="navbar-toggler-icon"><span>
       </button>
@@ -49,6 +55,12 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
           <li class="nav-item"> <a class="nav-link" href="info.html">Project Info </a></li>
         </ul>
       </div>
+      
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
     </nav>
   </header>
   <div class="jumbotron">
@@ -276,9 +288,9 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
                 icon.setAttribute("class", "badge");
 
 				var tes = document.createTextNode("This is your Fav");
-				
+
                 icon.appendChild(tes);
-                
+
                 btnDiv.appendChild(icon);
 
 				var alerts = document.createElement("div");
@@ -293,7 +305,7 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
            }
 
      //create unfave button
-          
+
 
            btnDiv.appendChild(btnUnfav);
 

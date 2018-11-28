@@ -234,31 +234,15 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
            var link = document.createElement("a");
            link.setAttribute("href", urlOfDetailPage); // so you'll navigate to the url
 
-           //create unfave button
-           var btnUnfav = document.createElement("BUTTON");
-           btnUnfav.setAttribute("class", "btn btn-outline-danger btn-secondary");
-           btnUnfav.setAttribute("name", i);
-           btnUnfav.setAttribute("id", "fav" + i + i);
-
-           btnUnfav.addEventListener("click", function () { unFavObj(this.name); })
-           var q = document.createTextNode("Un-Favorite");
-           btnUnfav.appendChild(q);
-
-
            var btnDiv = document.createElement("div");
            btnDiv.setAttribute("class", "btn-group btn-group-md");
            if (cookies[i] == 0) {
-
-               btnUnfav.setAttribute("disabled", "true");
                //create button 1 (favorite)
                var btnFav = document.createElement("BUTTON");
                btnFav.setAttribute("class", "btn btn-outline-success btn-secondary");
                btnFav.setAttribute("name", i);
        idNum = "fav" + i;
                btnFav.setAttribute("id", idNum);
-               btnFav.setAttribute("data-toggle", "tooltip");
-               btnFav.setAttribute("data-placement", "top");
-               btnFav.setAttribute("title", "Use this button to favorite the object.");
        btnFav.addEventListener("click", function(){favObj(this.name);})
 
 
@@ -283,7 +267,14 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
 
            }
 
-     
+     //create unfave button
+           var btnUnfav = document.createElement("BUTTON");
+           btnUnfav.setAttribute("class", "btn btn-outline-danger btn-secondary");
+     btnUnfav.setAttribute("name", i);
+           btnUnfav.setAttribute("id", "fav" + i  + i);
+     btnUnfav.addEventListener("click", function(){unFavObj(this.name);})
+           var q = document.createTextNode("Un-Favorite");
+           btnUnfav.appendChild(q);
 
            btnDiv.appendChild(btnUnfav);
 
@@ -292,7 +283,7 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
 
      //this div will contain all the elements that form 1 grid box
            var bigDiv = document.createElement("div");
-           bigDiv.setAttribute("class", "card-body");
+           bigDiv.setAttribute("class", "box");
 
      //order matters, top to bottom - left to right
      //put the title first then the image then the button

@@ -8,8 +8,6 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
 <!DOCTYPE html>
 <html>
 
-<!--Hello-->
-
 <head>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -19,6 +17,12 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
   <header>
     <!--#8-->
     <nav class="navbar-nav navbar-expand-md navbar-light bg-black sticky-top">
+
+      <a class="navbar-brand" href="#">
+        <img src="https://s3-us-west-2.amazonaws.com/phase4assignment/Lakers-icon.png" width="100" height="100" class="d-inline-block align-top" alt="">
+        <p class="align-top text-warning font-weight-bold"> Los Angeles Lakers </p>
+      </a>
+
       <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
         <span class="navbar-toggler-icon"><span>
       </button>
@@ -51,6 +55,12 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
           <li class="nav-item"> <a class="nav-link" href="info.html">Project Info </a></li>
         </ul>
       </div>
+      
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
     </nav>
   </header>
   <div class="jumbotron">
@@ -236,15 +246,27 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
            var link = document.createElement("a");
            link.setAttribute("href", urlOfDetailPage); // so you'll navigate to the url
 
+           var btnUnfav = document.createElement("BUTTON");
+           btnUnfav.setAttribute("class", "btn btn-outline-danger btn-secondary");
+           btnUnfav.setAttribute("name", i);
+           btnUnfav.setAttribute("id", "fav" + i + i);
+           btnUnfav.addEventListener("click", function () { unFavObj(this.name); })
+           var q = document.createTextNode("Un-Favorite");
+
+           btnUnfav.appendChild(q);
            var btnDiv = document.createElement("div");
            btnDiv.setAttribute("class", "btn-group btn-group-md");
            if (cookies[i] == 0) {
+               btnUnfav.setAttribute("disabled", "true");
                //create button 1 (favorite)
                var btnFav = document.createElement("BUTTON");
                btnFav.setAttribute("class", "btn btn-outline-success btn-secondary");
                btnFav.setAttribute("name", i);
        idNum = "fav" + i;
                btnFav.setAttribute("id", idNum);
+               btnFav.setAttribute("data-toggle", "tooltip");
+               btnFav.setAttribute("data-placement", "top");
+               btnFav.setAttribute("title", "Use this button to favorite the object.");
        btnFav.addEventListener("click", function(){favObj(this.name);})
 
 
@@ -262,21 +284,28 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
                btnDiv.appendChild(btnFav);
 
            } else {
-               var icon = document.createElement("img");
-               icon.setAttribute("class", "iconImg");
-               icon.setAttribute("src", "http://files.softicons.com/download/android-icons/cold-fusion-hd-icons-by-chris-banks/png/59x60/basketball.png");
-               btnDiv.appendChild(icon);
+                 var icon = document.createElement("BUTTON");
+                icon.setAttribute("class", "badge");
+
+				var tes = document.createTextNode("This is your Fav");
+
+                icon.appendChild(tes);
+
+                btnDiv.appendChild(icon);
+
+				var alerts = document.createElement("div");
+                alerts.setAttribute("class", "alert alert-success");
+
+				var tex = document.createTextNode("Thank you for favorting");
+
+                alerts.appendChild(tex);
+
+                document.body.appendChild(alerts);
 
            }
 
      //create unfave button
-           var btnUnfav = document.createElement("BUTTON");
-           btnUnfav.setAttribute("class", "btn btn-outline-danger btn-secondary");
-     btnUnfav.setAttribute("name", i);
-           btnUnfav.setAttribute("id", "fav" + i  + i);
-     btnUnfav.addEventListener("click", function(){unFavObj(this.name);})
-           var q = document.createTextNode("Un-Favorite");
-           btnUnfav.appendChild(q);
+
 
            btnDiv.appendChild(btnUnfav);
 
@@ -285,7 +314,7 @@ width of div, https://css-tricks.com/almanac/properties/w/width/
 
      //this div will contain all the elements that form 1 grid box
            var bigDiv = document.createElement("div");
-           bigDiv.setAttribute("class", "box");
+           bigDiv.setAttribute("class", "card-body");
 
      //order matters, top to bottom - left to right
      //put the title first then the image then the button

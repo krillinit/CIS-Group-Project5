@@ -1,0 +1,363 @@
+<!--VERSION 2 WITH CSS, introduction to responsive design, resize per device, then attempt interactive links (enabled)
+WILL ALSO load detailPage.html, with url param handling built in
+grab a set of images, using an array, for-iteration, then style them using css,
+move to second page using url parameters, non jq
+use non jq method to pass url parameters
+width of div, https://css-tricks.com/almanac/properties/w/width/
+-->
+<!DOCTYPE html>
+<html>
+
+<!--Hello-->
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+    <!--#8-->
+    <nav class="navbar-nav navbar-expand-md navbar-light bg-black sticky-top">
+
+      <a class="navbar-brand" href="#">
+        <img src="https://s3-us-west-2.amazonaws.com/phase4assignment/Lakers-icon.png" width="100" height="100" class="d-inline-block align-top" alt="">
+        <p class="align-top text-warning font-weight-bold"> Los Angeles Lakers </p>
+      </a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"><span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <span class="navbar-text"> CIS 3110</span>
+
+        <ul class="navbar-nav">
+            <li class="nav-item"> <a class="nav-link" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/main.html">Home</a> </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Site Directory<span class="caret"></span></a>
+                <!--#1-->
+                <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                    <a class="dropdown-item" href="https://s3.us-east-2.amazonaws.com/thefirstphase1/the+first+try.html">About Us</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Contact Us</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Privacy Policy</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Terms of Use</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Products<span class="caret"></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                    <a class="dropdown-item" href="https://s3.us-east-2.amazonaws.com/thefirstphase1/the+first+try.html">Hats</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Jerseys</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Shoes</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Missalicious</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Profile<span class="caret"></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                    <a class="dropdown-item" href="https://s3.us-east-2.amazonaws.com/thefirstphase1/the+first+try.html">Profile</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Create a Profile</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Profile Maintenance</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/cis3110fall/p3.html">Login</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Team<span class="caret"></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase1/phase1.html">Roster Page</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase2/p2.html">Schedules</a>
+                    <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/vtranbucket3110/phase3/p3.html">KB vs LJ</a>
+                </div>
+            </li>
+        </ul>
+      </div>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </nav>
+  </header>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center"> <strong>Los Angeles Lakers</strong> </h1>
+      <h2 class="text-center">Full Roster</h2>
+    </div>
+  </div>
+        <script>
+          var images = ["https://s3-us-west-2.amazonaws.com/phasethreeassignment/Rajon+Rondo.png",
+            "https://s3-us-west-2.amazonaws.com/phasethreeassignment/LeBron+James.png",
+            "https://s3-us-west-2.amazonaws.com/phasethreeassignment/Kentavious+Carldwell-Pope.png",
+            "https://s3-us-west-2.amazonaws.com/phasethreeassignment/JaVale+Mcgee.png",
+            "https://s3-us-west-2.amazonaws.com/phasethreeassignment/Brandon+Ingram.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Lonzo.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Alex+Caruso+4.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Issac+Bonga+17.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Iviac+Zubac+40.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Johnathan+Williams+19.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Josh+Hart+3.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Kyle+Kuzma+0.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Lance+Stephenson+6.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Michael+Beasley.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Moritz+Wagner+15.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Svi+Mykhailiuk+10.png",
+			"https://s3-us-west-2.amazonaws.com/phasethreeassignment/Tyson+Chandler+4.png"];
+			
+          var caption = ["Rajon Rondo", 
+						"LeBron James", 
+						"Kentavious Cardwell-Pope", 
+						"JaVale Mcgee", 
+						"Brandon Ingram", 
+						"Lonzo Ball", 
+						"Alex Caruso", 
+						"Issac Bonga",
+						"Iviac Zubac",
+						"Johnathan Williams",
+						"Josh Hart",
+						"Kyle Kuzma",
+						"Lance Stephenson",
+						"Michael Beasley",
+						"Moritz Wagner",
+						"Svi Mykhailiuk",
+						"Tyson Chandler"];
+
+          var description = ["Point Guard | 9", 
+			"Forward | 23",
+            "Guard | 1",
+			"Center | 7",
+			"Forward | 14",
+			"Guard | 2",
+			"Guard | 4", 
+			"Guard | 17",
+			"Center | 40",
+			"Forward | 19",
+			"Guard | 3",
+			"Forward | 0",
+			"Guard | 6",
+			"Forward | 11",
+			"Center | 15",
+			"Forward | 10",
+			"Center | 4"];
+
+
+			var alerts = document.createElement("div");
+                alerts.setAttribute("class", "alert alert-info");
+
+				var tex = document.createTextNode("Pick your favorite player!");
+
+                alerts.appendChild(tex);
+
+                document.body.appendChild(alerts);
+
+          var detailPageURLAry = [];
+
+       var cookies = loadCookies();
+
+       console.log(images);
+
+       var url; //assign later, make scope global to script
+
+
+   //create div that will store all elements in webpage, this is what allows the grid to work in this code
+       var mainDiv = document.createElement("div");
+   //set this div to be a grid
+       mainDiv.setAttribute("class", "gridDiv");
+       //put it in the page
+   document.body.appendChild(mainDiv);
+
+
+
+       for (var i = 0; i < images.length; i++) //establish for, 6 items, last index place is 5, if you recall
+       {
+     var idNum = "";
+
+           console.log("image in iteration is " + images[i]);
+           url = images[i]; //append to https://s3-us-west-2.amazonaws.com/newbucket3110fall18/phase2/
+           urlOfDetailPage = "detail.html?" + "img=" + url + "&caption=" + caption[i] + "&description=" + description[i] + "&favorite=" + cookies[i];  //where you will navigate, once you press the image, will send the detail page the img to analyze
+           //https://github.com/stefanbund/311/blob/16b1bb98a9f3c7a10663c2a4f87651bbf3508e17/prior%20terms/spring%202018%20materials/unit%202%20URL%20parameters/urlOrigin.html#L31   var imgDiv = document.createElement("div"); //divs to house img
+           detailPageURLAry[i] = urlOfDetailPage;
+
+     //creates div for image
+           var imgDiv = document.createElement("div"); //make a div
+           imgDiv.setAttribute("class", "border border-warning"); //so it displays at 30% width, margin and padding https://css-tricks.com/almanac/properties/o/object-fit/
+           var imgInDiv = document.createElement("img");
+           imgInDiv.setAttribute("class", "pctImg"); //fit to div
+           imgInDiv.setAttribute("src", url); //src to url, above, determined by for i
+
+     //creates paragraph
+           var pTitle = document.createElement("p");
+           pTitle.setAttribute("class", "center");
+           var descriptionI = document.createTextNode(caption[i]);
+           pTitle.appendChild(descriptionI);//create paragraph with text
+
+     //creates link
+           var link = document.createElement("a");
+           link.setAttribute("href", urlOfDetailPage); // so you'll navigate to the url
+
+           var btnUnfav = document.createElement("BUTTON");
+           btnUnfav.setAttribute("class", "btn btn-outline-danger btn-secondary");
+           btnUnfav.setAttribute("name", i);
+           btnUnfav.setAttribute("id", "fav" + i + i);
+           btnUnfav.addEventListener("click", function () { unFavObj(this.name); })
+           var q = document.createTextNode("Un-Favorite");
+
+           btnUnfav.appendChild(q);
+           var btnDiv = document.createElement("div");
+           btnDiv.setAttribute("class", "btn-group btn-group-md");
+           if (cookies[i] == 0) {
+               btnUnfav.setAttribute("disabled", "true");
+               //create button 1 (favorite)
+               var btnFav = document.createElement("BUTTON");
+               btnFav.setAttribute("class", "btn btn-warning");
+               btnFav.setAttribute("name", i);
+       idNum = "fav" + i;
+               btnFav.setAttribute("id", idNum);
+               btnFav.setAttribute("data-toggle", "tooltip");
+               btnFav.setAttribute("data-placement", "top");
+               btnFav.setAttribute("title", "Use this button to favorite the object.");
+       btnFav.addEventListener("click", function(){favObj(this.name);})
+
+
+
+
+               //create text on favorite button
+               var t = document.createTextNode("Favorite");
+       var link2 = link;
+               btnFav.appendChild(t);
+               //btnFav.appendChild(link2);
+               //create div to put button in (helps with page layout)
+
+
+
+               btnDiv.appendChild(btnFav);
+
+           } else {
+                 var icon = document.createElement("BUTTON");
+                icon.setAttribute("class", "badge");
+
+				var tes = document.createTextNode("This is your Fav");
+
+                icon.appendChild(tes);
+
+                btnDiv.appendChild(icon);
+
+				var alerts = document.createElement("div");
+                alerts.setAttribute("class", "alert alert-success");
+
+				var tex = document.createTextNode("Thank you for favoriting");
+
+                alerts.appendChild(tex);
+
+                document.body.appendChild(alerts);
+
+           }
+
+     //create unfave button
+
+
+           btnDiv.appendChild(btnUnfav);
+
+           link.appendChild(imgInDiv); //make the image the link
+           imgDiv.appendChild(link);//place the link inside of each div
+
+     //this div will contain all the elements that form 1 grid box
+           var bigDiv = document.createElement("div");
+           bigDiv.setAttribute("class", "card-body");
+
+     //order matters, top to bottom - left to right
+     //put the title first then the image then the button
+           bigDiv.appendChild(pTitle);
+           bigDiv.appendChild(imgDiv);
+           bigDiv.appendChild(btnDiv);
+
+
+
+
+           mainDiv.appendChild(bigDiv);//then appd to body, document.body.appendChild
+
+       }
+
+       function loadCookies() {
+           var cArray = ["", "", "", "",""];
+           for (var i = 0; i < images.length; i++) {
+               if (getCookie("cookie" + i)) {
+                   cArray[i] = 1;
+                   console.log(i);
+                   console.log(cArray);
+               }
+               else {
+                   cArray[i] = 0;
+                   console.log(cArray);
+               }
+           }
+           return cArray;
+       }
+
+       function favObj(btnName) {
+           var cname = "cookie" + btnName;
+
+           checkCookie(cname);
+     var temp = detailPageURLAry[btnName].replace("favorite=0", "favorite=1");
+     console.log(detailPageURLAry[btnName]);
+     window.location.href = temp;
+       }
+
+       function unFavObj(btnName) {
+           var cname = "cookie" + btnName;
+           console.log("made it");
+           deleteCookie(cname);
+     location.reload();
+     console.log("reload it");
+       }
+
+       function setCookie(cname, cvalue, exdays) {
+           var d = new Date();
+           d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+           var expires = "expires=" + d.toGMTString();
+           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+       }
+
+       function getCookie(cname) {
+           var name = cname + "=1";
+           var ca = document.cookie.split(';');
+           for (var i = 0; i < ca.length; i++) {
+               var c = ca[i];
+               while (c.charAt(0) == ' ') {
+                   c = c.substring(1);
+               }
+               if (c == name) {
+                   return true;
+               }
+           }
+           return false;
+       }
+
+       function checkCookie(cname) {
+           var status = getCookie(cname);
+           if (status) {
+               return true;
+           } else {
+
+                   setCookie(cname, 1, .1);
+               return false;
+           }
+       }
+
+   function deleteCookie(cname){
+           document.cookie = cname + "=" + 0 + ";expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+
+       }
+
+        </script>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

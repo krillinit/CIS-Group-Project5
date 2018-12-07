@@ -2,7 +2,79 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <header>
+            <!--#8-->
+            <nav class="navbar-nav navbar-expand-md navbar-light bg-black sticky-top">
+
+                <a class="navbar-brand" href="#">
+                    <img src="https://s3-us-west-2.amazonaws.com/phase4assignment/Lakers-icon.png" width="100" height="100" class="d-inline-block align-top" alt="">
+                    <p class="align-top text-warning font-weight-bold"> Los Angeles Lakers </p>
+                </a>
+
+
+
+
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                    <span class="navbar-toggler-icon"><span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapse_target">
+                    <span class="navbar-text"> CIS 3110</span>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item"> <a class="nav-link" href="https://s3-us-west-2.amazonaws.com/finalphase/Home.html">Home</a> </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Site Directory<span class="caret"></span></a>
+                            <!--#1-->
+                            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/LastPhaseAbout.html">About Us</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/LastPhaseContact.html">Contact Us</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/PrivacyPolicy.html">Privacy Policy</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/TermsofUse.html">Terms of Use</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Products<span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/hatslakers.html">Hats</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/Jerseys.html">Jerseys</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/Shoes.html">Shoes</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/Misc.html">Misc</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Profile<span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/profile.html">Profile</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/create.html">Create a Profile</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/edit.html">Profile Maintenance</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/LogIn.html">Login</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target">Team<span class="caret"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/Roster.html">Roster Page</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/Schedule.html">Schedules</a>
+                                <a class="dropdown-item" href="https://s3-us-west-2.amazonaws.com/finalphase/KBvLJ.html">KB vs LJ</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+            </nav>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -69,26 +141,62 @@
 
         </nav>
     </header>
-    <div class="jumbotron">
-        <div id="user-profile" class="user-profile">
-            <div id="home">
-                <div class="row">
-                    <div class="col col-sm-3">
 
-                        <img class="rounded float-left" alt=" Avatar" id="avatar2" src="https://s14009.pcdn.co/wp-content/uploads/2014/04/dodgers-new-ownership003.jpg">
-
-                    </div><!-- /.col -->
-
-                    <div>
-                        <h4>
-                            Username:<h4>
-                                <h3>
-                                    Location:<h3>
-                                        <h2>Age:<h2>
-                    </div>
-                </div>
-            </div>
+    <div class="jumbotron ">
+      <div class="container">
+            <h1 class="text-center" style="color:purple;"> <strong>Profile</strong> </h1>
+            <div class="main">
+              <div class="flip">
+                <picture>
+    <div class="main-img">
+    <img src="https://preview.ibb.co/gxVppG/img1.jpg" id="current" class="img-fluid" onclick="currentClick">
+  </div>
+</picture>
+  <div class="main-text">
+    <p id="proDesc">Name<p>
+      <p >Location<p>
+      <p >Age<p>
+</div>
+</div>
         </div>
+      </div>
+    </div>
+      <div class="jumbotron">
+      <div class="container">
+        <div id="imgs" class ="imgs">
+        </div>
+</div>
+</div>
+        <script>
+          var images = ["https://images.alphacoders.com/776/776026.jpg",	"http://a3.espncdn.com/combiner/i?img=%2Fmedia%2Fmotion%2F2017%2F0129%2Fdm_170129_NBA_ENHL_OTD_Magic_Johnson_returns_in_1996%2Fdm_170129_NBA_ENHL_OTD_Magic_Johnson_returns_in_1996.jpg",
+		"https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-s3.si.com%2Fs3fs-public%2F2018%2F07%2F10%2Fjerry-west-main-marquee.jpg&w=800&q=85",
+		"https://i.ytimg.com/vi/OTL8dW6PqPE/maxresdefault.jpg",
+		"http://images.performgroup.com/di/library/omnisport/82/3/onealshaq-831-getty-us-ftr_142utk4v0ric01itvwxde099fn.jpg?t=-2067250265",
+		"https://images.alphacoders.com/776/776026.jpg",
+            "http://a.espncdn.com/combiner/i?img=%2Fmedia%2Fmotion%2F2016%2F0820%2Fdm_160820_On_this_date_Happy_birthday_Wilt_Chamberlain%2Fdm_160820_On_this_date_Happy_birthday_Wilt_Chamberlain.jpg"];
+var titles=["Lance attack", "?", "Golfing", "JR Smith", "Shrug It Off", "Charmin"];
+var descriptions=["Lance attack", "?", "Golfing", "JR Smith", "Shrug It Off", "Charmin"];
+console.log(images);
+var cur = document.getElementById('current');
+cur.src= images [0];
+var pro =document.getElementById('proDesc');
+for(i=1; i <images.length; i++){
 
+  var imgDestination = document.getElementById("imgs");
+    var imgAdded = document.createElement("img");
+    imgAdded.src = images[i];
+  imgAdded.onclick = imgClick;
+
+    imgDestination.appendChild(imgAdded);
+}
+function imgClick(e) {
+  var current=document.getElementById('current');
+  current.src = e.target.src;
+
+}
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

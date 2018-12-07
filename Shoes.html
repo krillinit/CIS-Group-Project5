@@ -83,14 +83,14 @@ and open the template in the editor.
         </nav>
     </header>
     <script>
-        var images = ["PurpleJersey.jpeg", "WhiteJersey.jpeg", "OrangeJersey.jpeg", "GoldJersey.jpeg"];
+        var images = ["Converse.jpg", "HighTops.jpg", "AirForce.jpg", "KobeID.jpg"];
 
-        var caption = ["Purple Jersey - $52.49", "White Jersey - $37.49","Orange Jersey - $224.99","Gold Jersey - $109.99"];
+        var caption = ["Lakers Converse Chambray High Top Sneakers - $99.99", "LA High Tops - $79.97","Nike Air Force 1 Premium iD - $120","Kobe A.D. iD - $109.99"];
 
-        var description = ["Men's Los Angeles Lakers LeBron James Fanatics Branded Purple 2018/19 Fast Break Replica Jersey – Statement Edition",
-                           "Youth Los Angeles Lakers LeBron James Fanatics Branded White 2017/18 Fast Break Replica Jersey – Association Edition",
-                            "Men's Los Angeles Lakers Kobe Bryant Mitchell & Ness Gold 2008-09 Hardwood Classics Authentic Jersey",
-                            "Men's Los Angeles Lakers LeBron James Nike Gold 2018/19 Swingman Jersey - Icon Edition"];
+        var description = ["Lace up your fandom to a brand new level by putting on these Los Angeles Lakers Chambray high top sneakers from Converse.",
+                           "Calling all LA Lakers fans! Show your team pride with these amazing high top sneakers in the iconic LA colors.",
+                            "Spark your creativity with this design.",
+                            "Bring your colors to the court this season with customized versions of your favorite basketball shoes."];
 
         var cookies = loadCookies();
         var detailPageURLAry = [];
@@ -112,7 +112,7 @@ and open the template in the editor.
             console.log("descr in iteration is " + description[i]);
             
             url = "https://s3-us-west-2.amazonaws.com/3110/Phase+6-7+Assignment/" + images[i]; //append to https://s3-us-west-2.amazonaws.com/3110/Phase+3+Assignment/
-                var urlDetailPage = "JDetail.html?" + "img=" + url + "&" + "caption=" + caption[i] + "&" + "description=" + description[i];
+                var urlDetailPage = "SDetail.html?" + "img=" + url + "&" + "caption=" + caption[i] + "&" + "description=" + description[i];
                 var imgDiv = document.createElement("div");
                 var imgDiv = document.createElement("div");
                 imgDiv.setAttribute("class", "border border-warning");

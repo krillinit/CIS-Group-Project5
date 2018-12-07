@@ -2,8 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="profile.css">
-
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -70,59 +69,26 @@
 
         </nav>
     </header>
+    <div class="jumbotron">
+        <div id="user-profile" class="user-profile">
+            <div id="home">
+                <div class="row">
+                    <div class="col col-sm-3">
 
-    <div class="jumbotron ">
-      <div class="container">
-            <h1 class="text-center" style="color:purple;"> <strong>Profile</strong> </h1>
-            <div class="main">
-              <div class="flip">
-                <picture>
-    <div class="main-img">
-    <img src="https://preview.ibb.co/gxVppG/img1.jpg" id="current" class="img-fluid" onclick="currentClick">
-  </div>
-</picture>
-  <div class="main-text">
-    <p id="proDesc">Name<p>
-      <p >Location<p>
-      <p >Age<p>
-</div>
-</div>
+                        <img class="rounded float-left" alt=" Avatar" id="avatar2" src="https://s14009.pcdn.co/wp-content/uploads/2014/04/dodgers-new-ownership003.jpg">
+
+                    </div><!-- /.col -->
+
+                    <div>
+                        <h4>
+                            Username:<h4>
+                                <h3>
+                                    Location:<h3>
+                                        <h2>Age:<h2>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-      <div class="jumbotron">
-      <div class="container">
-        <div id="imgs" class ="imgs">
-        </div>
-</div>
-</div>
-        <script>
-          var images = ["https://images.alphacoders.com/776/776026.jpg",	"http://a3.espncdn.com/combiner/i?img=%2Fmedia%2Fmotion%2F2017%2F0129%2Fdm_170129_NBA_ENHL_OTD_Magic_Johnson_returns_in_1996%2Fdm_170129_NBA_ENHL_OTD_Magic_Johnson_returns_in_1996.jpg",
-		"https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-s3.si.com%2Fs3fs-public%2F2018%2F07%2F10%2Fjerry-west-main-marquee.jpg&w=800&q=85",
-		"https://i.ytimg.com/vi/OTL8dW6PqPE/maxresdefault.jpg",
-		"http://images.performgroup.com/di/library/omnisport/82/3/onealshaq-831-getty-us-ftr_142utk4v0ric01itvwxde099fn.jpg?t=-2067250265",
-		"https://images.alphacoders.com/776/776026.jpg",
-            "http://a.espncdn.com/combiner/i?img=%2Fmedia%2Fmotion%2F2016%2F0820%2Fdm_160820_On_this_date_Happy_birthday_Wilt_Chamberlain%2Fdm_160820_On_this_date_Happy_birthday_Wilt_Chamberlain.jpg"];
-var titles=["Lance attack", "?", "Golfing", "JR Smith", "Shrug It Off", "Charmin"];
-var descriptions=["Lance attack", "?", "Golfing", "JR Smith", "Shrug It Off", "Charmin"];
-console.log(images);
-var cur = document.getElementById('current');
-cur.src= images [0];
-var pro =document.getElementById('proDesc');
-for(i=1; i <images.length; i++){
 
-  var imgDestination = document.getElementById("imgs");
-    var imgAdded = document.createElement("img");
-    imgAdded.src = images[i];
-  imgAdded.onclick = imgClick;
-
-    imgDestination.appendChild(imgAdded);
-}
-function imgClick(e) {
-  var current=document.getElementById('current');
-  current.src = e.target.src;
-
-}
-        </script>
 </body>
 </html>

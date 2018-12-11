@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*nav{
+  width:100%;
+  height:5%;
+}
+nav p{
+  font-family:arial;
+  color:#222;
+  font-size:1.4vw;
+  line-height: 3;
+  float:left;
+  padding: 0% 2%;
+}
+nav ul{
+  float:left;
+}
+nav ul li{
+  float: left;
+  list-style: none;
+  position:relative;
+}
+nav ul li a{
+  display:block;
+  font-family:arial;
+  color:#222;
+  font-size:1.4vw;
+  padding: 3% 20%;
+  text-decoration: none;
+}
+nav ul li ul{
+  display:none;
+  position:absolute;
+  background-color:white;
+  padding:  25%;
+  border-radius:2%;
+}
+nav ul li:hover ul{
+  display:block;
+}
+
+nav ul li ul li{
+width:100%;
+border-radius:25%;
+}
+nav ul li ul li a:hover {
+background-color:#f3f3f3;
+}
+body{
+  background: white;
+  margin: 1rem;
+}
+.text-center{
+  clear:both;
+  text-align:center;
+}
+.jumbotron{
+  padding:3% 0%;
+  margin-bottom:1%;
+  color:#222;
+  background-color:#eee;
+  font-family:helvetica,serif;
+}
+.imgs img {
+  max-width: 100%;
+  max-height:100%;
+  object-fit: cover;
+}
+*/
+.gridDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: .5%;
+  background-color: #d3d3d3;
+}
+
+.imgDiv {
+  width: 100%;
+}
+
+.imgDiv img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.btn-group.special {
+  display: flex;
+}
+
+.special .btn {
+  flex: 1
+}
+
+.pctImg {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.centerImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 50%;
+}
+
+
+.center {
+    font-weight: bold;
+    font-size: large;
+    background-color: #FFC300
+}
+
+.text-center {
+  font-weight: bold;
+}
+
+.jumbotron {
+    background-image: url(https://cdn.dribbble.com/users/2011762/screenshots/4781986/la-bron-james.gif);
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: right;
+}
+
+
+
+
+
+
+.img-fluid {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.div2 border border-warning{
+	width: auto;
+    height: 100px;
+    padding: 50px;
+}
+
+
+<!-- Calendar -->
+
+body {
+    font-family: Tahoma;
+}
+
+header {
+    text-align: center;
+}
+
+#calendar {
+    width: 100%;
+}
+
+#calendar a {
+    color: #8e352e;
+    text-decoration: none;
+}
+
+#calendar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#calendar li {
+    display: block;
+    float: left;
+    width:14.342%;
+    padding: 5px;
+    box-sizing:border-box;
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+
+#calendar ul.weekdays {
+    height: 40px;
+    background: #8e352e;
+}
+
+#calendar ul.weekdays li {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 20px;
+    border: none !important;
+    padding: 10px 6px;
+    color: #fff;
+    font-size: 13px;
+}
+
+#calendar .days li {
+    height: 180px;
+}
+
+#calendar .days li:hover {
+    background: #d3d3d3;
+}
+
+#calendar .date {
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 4px;
+    background: #333;
+    color: #fff;
+    width: 20px;
+    border-radius: 50%;
+    float: right;
+}
+
+#calendar .event {
+    clear: both;
+    display: block;
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    line-height: 14px;
+    background: #e4f2f2;
+    border: 1px solid #b5dbdc;
+    color: #009aaf;
+    text-decoration: none;
+}
+
+#calendar .event-desc {
+    color: #666;
+    margin: 3px 0 7px 0;
+    text-decoration: none;
+}
+
+#calendar .other-month {
+    background: #f5f5f5;
+    color: #666;
+}
+
+
+@media(max-width: 768px) {
+
+    #calendar .weekdays, #calendar .other-month {
+        display: none;
+    }
+
+    #calendar li {
+        height: auto !important;
+        border: 1px solid #ededed;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: -1px;
+    }
+
+    #calendar .date {
+        float: none;
+    }
+}

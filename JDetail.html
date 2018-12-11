@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Image Visited</title>
         
-        <link rel="stylesheet" href="Phase6.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -18,101 +18,117 @@ and open the template in the editor.
 
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     
-        <script> //jq show feature on the image
-      //effect applies to the newly created div
+     <script>
+        //jq show feature on the image
+        //effect applies to the newly created div
         $(function() { //shorthand for document when ready
-                //breakUpURLParameters(); //first things first, grab the url params and format the page
-                $("#u").click(function () {
-                    //alert("testing this");
-                    var h = "Jerseys.html"; //
-                    console.log(h);//should be prior url visited, before here
-                    window.location.href = h;
-                });
-                
-                //url param handling
-                var url = window.location.href;
-                console.log("url = " + url);
-                var x = breakUpURLParameters(url);
-                console.log(x.search);
-                console.log("img url  = " + x.search.img); //please refer to http://www.w3schools.com/jsref/jsref_map.asp for example code
+          //breakUpURLParameters(); //firtst things first, grab the url params and format the page
+          $("#u").click(function() {
+            //alert("testing this");
+            var h = "Jerseys.html"; //
+            console.log(h); //should be prior url visited, before here
+            window.location.href = h;
+          });
+          //url param handling
+          var url = window.location.href;
+          console.log("url = " + url);
+          var x = breakUpURLParameters(url);
+          console.log(x.search);
+          console.log("img url  = " + x.search.img);
+          //please refer to http://www.w3schools.com/jsref/jsref_map.asp for example code
+          var t = document.getElementById("effectDiv"); //grab the div and use the following lines to attach the image to it
+          var y = document.createElement("img");
+          y.setAttribute("src", x.search.img); // set up and assign img src
+          y.setAttribute("class", "img-fluid"); //uses css class, be sure it's in the head area
+          t.appendChild(y); //populate div with image, via url parameters
 
-                var t = document.getElementById("effectDiv");//grab the div and use the following lines to attach the image to it
-                var y = document.createElement("img");
-                
-                var capt = document.createElement("p");
-                var desc = document.createElement("p");
-                
-                y.setAttribute("src", x.search.img); // set up and assign img src
-                y.setAttribute("class", "pctImg"); //uses css class, be sure it's in the head area
+          var captionNode = document.createTextNode(decodeURI(x.search.caption));
+          var descriptionNode = document.createTextNode(decodeURI(x.search.description));
 
-                var icon;
-                console.log("favorite is " + x.search.favorite);
-                var isFav = decodeURI(x.search.favorite);
-                if(isFav == 1) {
-                    //read cookie pertaining to favorite, and check vs img url/filename?`
-                    console.log("isFav = " + isFav);
-                    icon = document.createElement("img");
-                    icon.setAttribute("class", "backImg");
-                    icon.setAttribute("src", "https://s3-us-west-2.amazonaws.com/3110/Phase+6-7+Assignment/Cart.png");
-                    t.appendChild(icon);  
-                }
-                
-                t.appendChild(y);//populate div with image, via url parameters
-                
-                var captionNode = document.createTextNode(decodeURI(x.search.caption));
-                var descriptionNode = document.createTextNode(decodeURI(x.search.description));
-            
-                capt.appendChild(captionNode);
-                desc.appendChild(descriptionNode);
-                
-                
-                t.appendChild(capt);
-                t.appendChild(desc);
-                
-                function breakUpURLParameters(url) {        //analyze and output the url parameters as a useful array to caller
-                    //  create a link in the DOM and set its href
-                    var link = document.createElement('a');
-                    link.setAttribute('href', url);
-                    console.log("path variable is " + url);
-                    //  return an easy-to-use object that breaks apart the path
-                    return {
-                        host: link.hostname, //  'example.com'
-                        port: link.port, //  12345
-                        search: mapMaker(link.search), //  {startIndex: 1, pageSize: 10}
-                        path: link.pathname, //  '/blog/foo/bar'
-                        protocol: link.protocol   //  'http:'
-                    }
-                }
-                function mapMaker(search, preserveDuplicates) { //responsible for obtaining all url params, representing them into an array
-                    //  option to preserve duplicate keys (e.g. 'sort=name&sort=age')
-                    preserveDuplicates = preserveDuplicates || false;  //  disabled by default
-                    var outputNoDupes = {};
-                    var returnableArray = [];  //  optional output array to preserve duplicate keys
-                    //  sanity check
-                    if (!search)
-                        throw new Error('mapMaker: your search input param is misformed?');
-                    //  remove ? character from your url (?foo=1&bar=2 -> 'foo=1&bar=2')
-                    search = search.split('?')[1];
-                    //  split apart your keys into a useful array of key/value pairs ('foo=1&bar=2' -> ['foo=1', 'bar=2'])
-                    search = search.split('&');
-                    //  separate keys from values (['foo=1', 'bar=2'] -> [{foo:1}, {bar:2}])
-                    //  then package as an array for your caller to use as variables
-                    returnableArray = search.map(function (keyval) {
-                        var out = {};
-                        keyval = keyval.split('=');
-                        out[keyval[0]] = keyval[1];
-                        outputNoDupes[keyval[0]] = keyval[1]; //  might as well do the no-dupe work too while we're in the loop
-                        return out;
-                    });
-                    return (preserveDuplicates) ? returnableArray : outputNoDupes;
-                }
+          var divTit = document.createElement("div");
+          var tit = document.createElement("h2");
+          tit.setAttribute("class", "text-center");
+          tit.appendChild(captionNode);
+          t.appendChild(tit); //put caption under picture
+
+          //create div and put description in new div
+          var z = document.createElement("div");
+          var para = document.createElement("P");
+          para.setAttribute("class", "text-center");
+          para.appendChild(descriptionNode);
+          z.appendChild(para);
+          t.appendChild(z);
+
+
+
+          //parses passed value and reassebles with " " instead of "%20"
+          function parseStringParam(s) {
+            sA = s.split("%20");
+            var r = "";
+            for (i = 0; i < sA.length; i++) {
+              r += sA[i] + " ";
+            }
+            return r;
+          }
+
+
+          function breakUpURLParameters(url) { //analyze and output the url parameters as a useful array to caller
+            //  create a link in the DOM and set its href
+            var link = document.createElement('a');
+            link.setAttribute('href', url);
+            console.log("path variable is " + url);
+
+            //  return an easy-to-use object that breaks apart the path
+            return {
+              host: link.hostname, //  'example.com'
+              port: link.port, //  12345
+              search: mapMaker(link.search), //  {startIndex: 1, pageSize: 10}
+              path: link.pathname, //  '/blog/foo/bar'
+              protocol: link.protocol //  'http:'
+            }
+          }
+
+          function mapMaker(search, preserveDuplicates) { //responsible for obtaining all url params, representing them into an array
+            //  option to preserve duplicate keys (e.g. 'sort=name&sort=age')
+            preserveDuplicates = preserveDuplicates || false; //  disabled by default
+
+            var outputNoDupes = {};
+            var returnableArray = []; //  optional output array to preserve duplicate keys
+
+            //  sanity check
+            if (!search) throw new Error('mapMaker: your search input param is misformed?');
+
+            //  remove ? character from your url (?foo=1&bar=2 -> 'foo=1&bar=2')
+            search = search.split('?')[1];
+
+            //  split apart your keys into a useful array of key/value pairs ('foo=1&bar=2' -> ['foo=1', 'bar=2'])
+            search = search.split('&');
+
+            //  separate keys from values (['foo=1', 'bar=2'] -> [{foo:1}, {bar:2}])
+            //  then package as an array for your caller to use as variables
+            returnableArray = search.map(function(keyval) {
+              var out = {};
+              keyval = keyval.split('=');
+              out[keyval[0]] = keyval[1];
+              outputNoDupes[keyval[0]] = keyval[1]; //  might as well do the no-dupe work too while we're in the loop
+              return out;
             });
-        </script>
+            return (preserveDuplicates) ? returnableArray : outputNoDupes;
+          }
+        });
+      </script>
     </head>
-    <body>
-        <div id="effectDiv" class="imgDiv">
-            <button id="u">back</button>
-        </div>
 
+    <body>
+        
+      <div class="container">
+        <div id="effectDiv" class="imgDiv">
+        </div>
+        <button id="u" class="btn btn-primary btn-block">Back</button>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
+
 </html>

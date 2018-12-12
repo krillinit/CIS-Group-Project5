@@ -1,0 +1,46 @@
+body{
+  background: white;
+  margin: 1rem;
+  color:white;
+
+}
+.text-center{
+  clear:both;
+  text-align:center;
+}
+.jumbotron{
+  padding:100% 100%;
+  margin-bottom:1%;
+  color:white;
+  background-color: #cccccc;
+  font-family:helvetica,serif;
+    background: url(http://a.espncdn.com/combiner/i?img=%2Fphoto%2F2015%2F0911%2Fnba_g_lakers01jr__r7948_1296x729_16-9.jpg) no-repeat;
+    background-size:cover;
+    background-position: center center;
+}
+
+.main-img img{
+  width:100%;
+}
+.imgs img {
+  width: 100%;
+  max-height:20%;
+}
+
+.imgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: .5%;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}

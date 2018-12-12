@@ -81,13 +81,13 @@
     <div class="col-md">
 <h4 class="text-center">Accounts</h4>
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action active">
-        Account 1
+        <button type="button" class="list-group-item list-group-item-action active btn-1">
+    Magic
         </button>
-        <button type="button" class="list-group-item list-group-item-action">Account 2</button>
-        <button type="button" class="list-group-item list-group-item-action">Account 3</button>
-        <button type="button" class="list-group-item list-group-item-action">Account 4</button>
-        <button type="button" class="list-group-item list-group-item-action" disabled>Account TBD</button>
+        <button type="button" class="list-group-item list-group-item-action btn-1">Kareem</button>
+        <button type="button" class="list-group-item list-group-item-action btn-1">Kobe</button>
+        <button type="button" class="list-group-item list-group-item-action btn-1">Shaq</button>
+        <button type="button" class="list-group-item list-group-item-action btn-1" disabled>Account TBD</button>
       </div>
 
     </div>
@@ -95,12 +95,12 @@
     <form action="uploadform">
         <div class="form-group">
             <label for="">Username</label>
-            <input type="text" class="form-control" id="user1" placeholder="lebron23">
+            <input type="text" class="form-control" id="user1" placeholder="LeBron">
             <small id="text-help" class="form-text text-muted">Type in the new username you want to change to</small>
         </div>
         <div class="form-group">
             <label for="">Location</label>
-            <input type="text" class="form-control" id="la" placeholder="Location">
+            <input type="text" class="form-control" id="la" placeholder="LA">
               <small id="text-help2" class="form-text text-muted">Send me your location lets focus on communicating. -Khalid</small>
         </div>
         <div class="form-group">
@@ -124,11 +124,10 @@
         <button type="button" id="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-  <!-- Copyright -->
 </div>
 </div>
 </div>
-<footer class="page-footer font-small fixed-bottom">
+<footer class="page-footer font-small">
 
 
     <div class="container-fluid text-center text-md-left">
@@ -170,18 +169,9 @@
 
 </footer>
 <script>
-$(function(){
-    console.log('ready');
-
-    $('.list-group li').click(function(e) {
-        e.preventDefault()
-
-        $that = $(this);
-
-        $that.parent().find('li').removeClass('active');
-        $that.addClass('active');
-    });
-})
+$('.list-group').on('click', '.btn', function() {
+  $(this).addClass('active').siblings().removeClass('active');
+});
 </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
